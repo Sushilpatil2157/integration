@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Data_Context_Services.Sushil_Result>
+@{ 
+    Layout = null;
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <th>
+                Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+               Email
+            </th>
+            <th>
+               State
+            </th>
+            <th>
+               City
+            </th>
+            <th>
+                Country
+            </th>
+            <th>
+                Fax No
+            </th>
+            <th>
+                Phone
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+@foreach (var item in Model) {
+    <tr>
+    
+        <td>
+            @Html.Hidden("item.company_id", item.company_id)
+            @Html.DisplayFor(modelItem => item.company_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company_address_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company_email_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company_state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company_city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company_country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company_fax_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company_phone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.company_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.company_id})
+        </td>
+    </tr>
+}
+   
+</table>

@@ -1,0 +1,31 @@
+﻿@model Integration_Models.Master_Models.Company_Information_Model
+    @{ 
+        Layout = null;
+    }
+<head>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        function Data_Save()
+        {
+            var Form_Data = $("#Company_Form").serialize();
+            alert("Check")
+            $.ajax({
+                type: "post",
+                url: "/Factory/SaveOrUpdate",
+                data: Form_Data,
+                success: function (result)
+                {
+                    alert("Data save")
+                }
+
+            })
+        }
+    </script>
+</head>
+<form id="Company_Form">
+<label>Company Id</label>
+    @Html.HiddenFor(m=>m.company_id)
+    <label>Company Name</label>
+    @Html.TextBoxFor(m=>m.company_name)
+    <button type="button"onclick="Data_Save()">Save</button>
+</form>

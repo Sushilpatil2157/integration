@@ -1,0 +1,157 @@
+﻿@model Integration_Models.Master_Models.Company_Information_Model
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Save", "Company", FormMethod.Post))
+{
+
+   
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.HiddenFor(m => m.company_id)
+            <label class="small mb-1">Company Name<span style="color:red">*</span></label>
+            @Html.TextBoxFor(m => m.company_name , new { @class="form-control"})
+            @Html.ValidationMessageFor(m => m.company_name, "",new {@class="text-danger"})
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="small mb-1">Company Address<span style="color:red">*</span></label>
+            @Html.TextAreaFor(m => m.company_address_1, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="small mb-1">Company Address</label>
+            @Html.TextAreaFor(m => m.company_address_2, new { @class = "form-control" })
+        </div>
+    </div>
+    
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="small mb-1">Company Email Id<span style="color:red">*</span></label>
+            @Html.TextBoxFor(m => m.company_email_id, new { @class = "form-control" })   
+        </div>
+    </div>
+   
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="small mb-1">Company bst No<span style="color:red">*</span></label>
+            @Html.TextBoxFor(m => m.comany_bst_no, new { @class = "form-control" })
+        </div>
+    </div>
+   
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="small mb-1">Company State<span style="color:red">*</span></label>
+            @Html.DropDownListFor(m => m.company_state, new SelectList(ViewBag.State, "Value", "Text"), new { @class = "form-control", id = "State_id", onchange = "get_data()" })
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="small mb-1">Company City<span style="color:red">*</span></label>
+            @Html.DropDownListFor(m => m.company_city, new SelectList(ViewBag.State1, "Value", "Text"), new { @class = "form-control", id = "City_id", onchange = "get_data1()" })
+        </div>
+    </div>
+
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="small mb-1">Company Country<span style="color:red">*</span></label>
+            @Html.DropDownListFor(m => m.company_country, new SelectList(ViewBag.State2, "Value", "Text"), new { @class = "form-control" })
+        </div>
+    </div>
+  
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Company Cst</label>
+            @Html.TextBoxFor(m => m.company_cst, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Company Fax No</label>
+            @Html.TextBoxFor(m => m.company_fax_no, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Compnay GST</label>
+            @Html.TextBoxFor(m => m.company_gst, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Company Pan</label>
+            @Html.TextBoxFor(m => m.company_pan, new { @class = "form-control" })
+        </div>
+    </div>
+   
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Company Web Site</label>
+            @Html.TextBoxFor(m => m.company_web_site, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Company Poster Code</label>
+            @Html.TextBoxFor(m => m.company_poster_code, new { @class = "form-control" })
+        </div>
+    </div>
+   
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Phone No</label>
+            @Html.TextBoxFor(m => m.company_phone, new { @class = "form-control" })
+        </div>
+    </div>
+    
+</div>
+    <center><button type="submit" class="btn btn-dark">Submit</button></center>
+}
+    <head>
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+            function get_data() {
+                var state_name;
+                var State_id = $("#State_id").val();
+                alert(State_id)
+                $.getJSON("/Company/get_data/",
+                    { id: State_id },
+                    function (data) {
+                        state_name = (data.state_name)
+                        alert(state_name)
+                        
+                })
+
+                
+            }
+            function get_data1() {
+                var City_name;
+                var City_id= $("#City_id").val();
+                alert(City_id)
+                $.getJSON("/Company/get_data1/",
+                    { id: City_id },
+                    function (data) {
+                        City_name = (data.City_name)
+                        alert(City_name)
+
+                    })
+
+
+            }
+        </script>
+    </head>

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_Integration_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="m_city_information">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city_name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="m_company_information">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Name="company_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_name" Type="nvarchar(max)" />
+          <Property Name="company_web_site" Type="nvarchar(max)" />
+          <Property Name="company_country" Type="int" />
+          <Property Name="company_state" Type="int" />
+          <Property Name="company_city" Type="int" />
+          <Property Name="company_address_1" Type="nvarchar(max)" />
+          <Property Name="company_address_2" Type="nvarchar(max)" />
+          <Property Name="company_poster_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_pan" Type="nvarchar" MaxLength="50" />
+          <Property Name="compay_tax" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_gst" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_cst" Type="nvarchar" MaxLength="50" />
+          <Property Name="comany_bst_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_fax_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_email_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="devloper_id" Type="int" />
+          <Property Name="ac_flag" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="m_cuntry_information">
+          <Key>
+            <PropertyRef Name="cuntry_id" />
+          </Key>
+          <Property Name="cuntry_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cuntry_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="m_state_information">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="state_name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Function Name="Sushil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="db_Integration_ModelStoreContainer">
+          <EntitySet Name="m_city_information" EntityType="Self.m_city_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_company_information" EntityType="Self.m_company_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_cuntry_information" EntityType="Self.m_cuntry_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="m_state_information" EntityType="Self.m_state_information" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_Integration_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="m_company_information">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="company_web_site" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="company_country" Type="Int32" />
+          <Property Name="company_state" Type="Int32" />
+          <Property Name="company_city" Type="Int32" />
+          <Property Name="company_address_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="company_address_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="company_poster_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_pan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="compay_tax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_gst" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_cst" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="comany_bst_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_fax_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="devloper_id" Type="Int32" />
+          <Property Name="ac_flag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Db_Integration_Entity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="m_company_information" EntityType="Self.m_company_information" />
+          <EntitySet Name="m_state_information" EntityType="db_Integration_Model.m_state_information" />
+          <EntitySet Name="m_city_information" EntityType="db_Integration_Model.m_city_information" />
+          <EntitySet Name="m_cuntry_information" EntityType="db_Integration_Model.m_cuntry_information" />
+          <FunctionImport Name="Sushil" ReturnType="Collection(db_Integration_Model.Sushil_Result)" />
+        </EntityContainer>
+        <EntityType Name="m_state_information">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="state_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="m_city_information">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="m_cuntry_information">
+          <Key>
+            <PropertyRef Name="cuntry_id" />
+          </Key>
+          <Property Name="cuntry_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cuntry_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Sushil_Result">
+          <Property Type="Int32" Name="company_id" Nullable="false" />
+          <Property Type="String" Name="company_name" Nullable="true" />
+          <Property Type="String" Name="company_address_1" Nullable="true" />
+          <Property Type="String" Name="company_email_id" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="company_state" Nullable="true" />
+          <Property Type="Int32" Name="company_city" Nullable="true" />
+          <Property Type="Int32" Name="company_country" Nullable="true" />
+          <Property Type="String" Name="company_fax_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="company_phone" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_Integration_ModelStoreContainer" CdmEntityContainer="Db_Integration_Entity">
+          <EntitySetMapping Name="m_company_information">
+            <EntityTypeMapping TypeName="db_Integration_Model.m_company_information">
+              <MappingFragment StoreEntitySet="m_company_information">
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="company_web_site" ColumnName="company_web_site" />
+                <ScalarProperty Name="company_country" ColumnName="company_country" />
+                <ScalarProperty Name="company_state" ColumnName="company_state" />
+                <ScalarProperty Name="company_city" ColumnName="company_city" />
+                <ScalarProperty Name="company_address_1" ColumnName="company_address_1" />
+                <ScalarProperty Name="company_address_2" ColumnName="company_address_2" />
+                <ScalarProperty Name="company_poster_code" ColumnName="company_poster_code" />
+                <ScalarProperty Name="company_pan" ColumnName="company_pan" />
+                <ScalarProperty Name="compay_tax" ColumnName="compay_tax" />
+                <ScalarProperty Name="company_gst" ColumnName="company_gst" />
+                <ScalarProperty Name="company_cst" ColumnName="company_cst" />
+                <ScalarProperty Name="comany_bst_no" ColumnName="comany_bst_no" />
+                <ScalarProperty Name="company_fax_no" ColumnName="company_fax_no" />
+                <ScalarProperty Name="company_phone" ColumnName="company_phone" />
+                <ScalarProperty Name="company_email_id" ColumnName="company_email_id" />
+                <ScalarProperty Name="devloper_id" ColumnName="devloper_id" />
+                <ScalarProperty Name="ac_flag" ColumnName="ac_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_state_information">
+            <EntityTypeMapping TypeName="db_Integration_Model.m_state_information">
+              <MappingFragment StoreEntitySet="m_state_information">
+                <ScalarProperty Name="state_name" ColumnName="state_name" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_city_information">
+            <EntityTypeMapping TypeName="db_Integration_Model.m_city_information">
+              <MappingFragment StoreEntitySet="m_city_information">
+                <ScalarProperty Name="city_name" ColumnName="city_name" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_cuntry_information">
+            <EntityTypeMapping TypeName="db_Integration_Model.m_cuntry_information">
+              <MappingFragment StoreEntitySet="m_cuntry_information">
+                <ScalarProperty Name="cuntry_name" ColumnName="cuntry_name" />
+                <ScalarProperty Name="cuntry_id" ColumnName="cuntry_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sushil" FunctionName="db_Integration_Model.Store.Sushil">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_Integration_Model.Sushil_Result">
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="company_address_1" ColumnName="company_address_1" />
+                <ScalarProperty Name="company_email_id" ColumnName="company_email_id" />
+                <ScalarProperty Name="company_state" ColumnName="company_state" />
+                <ScalarProperty Name="company_city" ColumnName="company_city" />
+                <ScalarProperty Name="company_country" ColumnName="company_country" />
+                <ScalarProperty Name="company_fax_no" ColumnName="company_fax_no" />
+                <ScalarProperty Name="company_phone" ColumnName="company_phone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
